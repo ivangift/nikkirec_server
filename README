@@ -1,4 +1,33 @@
-I used to think that I lost this piece after I replaced my laptop. Fortunately
+Source code of NikkiRec (a.k.a the Grey Technology for Fantasy Ambassador)
 
+I thought I've lost this piece after replacing my laptop. Fortunately AWS still
+keeps my working volume even after I shut down the server (with a monthly cost,
+of course). I don't intent to maintain this project any more. Since it use very
+brute force appraoches, I decided to opensource it as well.
+However, training data (screentshot of nikki's clothes) is subject to nikki's
+copyright. I will not include them to avoid unnecessary troubles.
 
+Most of the tricks are in Detect.java and Clothes.java:
+Detect.java
+ - Training data generation
+ - Crop/Scale
+ - Matching logic
+ - debug information
+ - Unit tests
+Clothes.java
+ - Similarity function
+
+Prepare the data:
+ - Use iPad to capture the clothes in freestyle mode
+ - Scale (persisting ratio) to 800x600
+ - Save as ID.jpg format where ID is the 3 (or 4) digit clothes id
+ - Put into corresponding dressraw/, topsraw/ or bottomsraw/ folder
+Generate training data
+ - Uncomment the processSample() line in Detect.main() and run it
+ - Code will generate dress/, tops/ and buttoms/ from the raw data
+Start the server
+ - Check tomcat manuals, NikkiRec.java is a http servlet that should be
+   compatible with tomcat
+
+Anyway, good luck.
 -ip
